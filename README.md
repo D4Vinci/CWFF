@@ -83,7 +83,7 @@ You can use script `filter.py` to filter endpoints you have as the following way
 ## Installation
 ```bash
 python3 -m pip install -r requirements.txt
-python3 CWFF.py --help
+python3 cwff.py --help
 ```
 
 ## Contact
