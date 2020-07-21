@@ -79,7 +79,7 @@ class collector:
 		self.endpoints = { e[1:] if e.startswith("/") else e for e in self.endpoints}
 		self.endpoints = { e[:-1] if e.endswith("/") else e for e in self.endpoints}
 		# Brace yourself I'm gonna use magic :D
-		if end or contain or regex:
+		if end or contain or matches:
 			if end:
 				end = [ e.strip().replace("*","") for e in end]
 				self.endpoints = set(filter( lambda x: not x.endswith(tuple(end)), self.endpoints))
