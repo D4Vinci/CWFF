@@ -290,9 +290,9 @@ class collector:
 				finally:
 					del futures[:]
 
-		sys.stdout.write(f"\n{color.blue} |{color.reset} Elapsed time {time.strftime('%M.%Sm', time.gmtime(time.time()-start))}.\n | \n")
-		sys.stdout.flush()
-		self.__add_endpoints(total_endpoints)
+			sys.stdout.write(f"\n{color.blue} |{color.reset} Elapsed time {time.strftime('%M.%Sm', time.gmtime(time.time()-start))}.\n | \n")
+			sys.stdout.flush()
+			self.__add_endpoints(total_endpoints)
 
 	def wayback_endpoints(self):
 		total_endpoints = []
@@ -310,8 +310,8 @@ class collector:
 				total_endpoints = sorted(set(total_endpoints))
 				sys.stdout.write("\r | Found {} endpoint(s) (Total progress:{}/{})".format( len(total_endpoints),number,len(self.wayback_urls)) )
 				sys.stdout.flush()
-		sys.stdout.write(f"\n{color.blue} |{color.reset} Elapsed time {time.strftime('%M.%Sm', time.gmtime(time.time()-start))}.\n |\n")
-		sys.stdout.flush()
+			sys.stdout.write(f"\n{color.blue} |{color.reset} Elapsed time {time.strftime('%M.%Sm', time.gmtime(time.time()-start))}.\n |\n")
+			sys.stdout.flush()
 		self.__add_endpoints(total_endpoints)
 
 	def commoncrawl_endpoints(self, search_subdomains=False):
@@ -383,9 +383,9 @@ class collector:
 				sys.stdout.write("\r | Found {} endpoint(s) (Total progress:{}/{})".format( len(total_endpoints),number,len(wanted_urls)) )
 				sys.stdout.flush()
 
-		sys.stdout.write(f"\n{color.blue} |{color.reset} Total elapsed time {time.strftime('%M.%Sm', time.gmtime(time.time()-start))}.\n |\n")
-		sys.stdout.flush()
-		self.__add_endpoints(total_endpoints)
+			sys.stdout.write(f"\n{color.blue} |{color.reset} Total elapsed time {time.strftime('%M.%Sm', time.gmtime(time.time()-start))}.\n |\n")
+			sys.stdout.flush()
+			self.__add_endpoints(total_endpoints)
 
 	def alienvault_endpoints(self):
 		url = f"https://otx.alienvault.com/api/v1/indicators/hostname/{self.domain}/url_list?limit=200&page="
@@ -591,7 +591,8 @@ def main_logic(site, args):
 				os.mkdir(args.o)
 			outdir = args.o
 		else:
-			os.mkdir(outdir)
+			if not os.path.isdir(outdir):
+				os.mkdir(outdir)
 
 		with open(os.path.join(outdir,"endpoints.txt"), "w") as f:
 			for line in sorted(collect.endpoints):
