@@ -590,6 +590,8 @@ def main_logic(site, args):
 			if not os.path.isdir(args.o):
 				os.mkdir(args.o)
 			outdir = args.o
+		else:
+			os.mkdir(outdir)
 
 		with open(os.path.join(outdir,"endpoints.txt"), "w") as f:
 			for line in sorted(collect.endpoints):
