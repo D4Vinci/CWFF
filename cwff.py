@@ -615,7 +615,7 @@ if __name__ == '__main__':
 	parser.add_argument("--threads", help="The number of maximum concurrent threads to use (Default:1000)")
 	parser.add_argument("--github", help="Collect endpoints from a given github repo (ex:https://github.com/google/flax)")
 	parser.add_argument("--subdomains", help="Extract endpoints from subdomains also while search in the wayback machine!",action="store_true")
-	parser.add_argument("--recursive", help="Work on extracted endpoints recursivly (Adds more endpoints but less accurate sometimes)!",action="store_true")
+	parser.add_argument("--recursive", help="Work on extracted endpoints recursively (Adds more endpoints but less accurate sometimes)!",action="store_true")
 	parser.add_argument("--js-libraries", help="Extract endpoints from JS libraries also, not just the JS written by them!",action="store_true")
 	parser.add_argument("--connected-websites", help="Include endpoints extracted from connected websites",action="store_true")
 	parser.add_argument("--juicy-files", help="Include endpoints extracted from juicy files like sitemap.xml and robots.txt",action="store_true")
