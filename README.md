@@ -15,7 +15,7 @@ optional arguments:
   --threads             The number of maximum concurrent threads to use (Default:1000)
   --github              Collect endpoints from a given github repo (ex:https://github.com/google/flax)
   --subdomains          Extract endpoints from subdomains also while search in the wayback machine!
-  --recursive           Work on extracted endpoints recursivly (Adds more endpoints but less accurate sometimes)!
+  --recursive           Work on extracted endpoints recursively (Adds more endpoints but less accurate sometimes)!
   --js-libraries        Extract endpoints from JS libraries also, not just the JS written by them!
   --connected-websites  Include endpoints extracted from connected websites
   --juicy-files         Include endpoints extracted from juicy files like sitemap.xml and robots.txt
@@ -45,7 +45,7 @@ So it basically collects endpoints and parameters of the target and its subdomai
 
   > Note: you can get your API key from [this page](https://api.builtwith.com/relationships-api) and set the variable at `API_keys.py` file.
 
-After collecting endpoints from all these endpoints if you used the `--recursive` flag, CWFF would recursivly extract parts from collected endpoints.
+After collecting endpoints from all these endpoints if you used the `--recursive` flag, CWFF would recursively extract parts from collected endpoints.
 - Example: an endpoint like `parseq/javadoc/1.1.0/com` will become all these endpoints:
   ```bash
   parseq/javadoc/1.1.0/com
@@ -91,7 +91,7 @@ python3 cwff.py --help
 - [Telegram](https://t.me/D4Vinci_0x)
 
 ## TODO
-- Merge endpoints recursivly
+- Merge endpoints recursively
 - Extract website unique words by comparing to RFC.
 
 ## Donation
