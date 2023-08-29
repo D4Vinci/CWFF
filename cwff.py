@@ -440,16 +440,21 @@ class collector:
 			start = time.time()
 			req = requests.get(f"https://api.builtwith.com/rv1/api.json?KEY={api_keys.builtwith}&LOOKUP={self.domain}", headers=self.__headers)
 			if req:
-				sys.stdout.write("\r | Found {} connected website(s) in the relationship profile!".format(len(self.builtwith_connected_websites)))
-				sys.stdout.flush()
-				j = req.json()
-				for Id in j["Relationships"][0]["Identifiers"]:
-					for match in Id["Matches"]:
-						d = match.get("Domain","")
-						if d:
-							self.builtwith_connected_websites.add(d)
-							sys.stdout.write("\r | Found {} connected website(s) in the relationship profile!".format(len(self.builtwith_connected_websites)))
-							sys.stdout.flush()
+				sys.stdout.write("\r | Found {} connected website(s) in the relationship profile!".format(
+					len(self.builtwith_connected_websites)))
+				builtwith_length = len(self.builtwith_connected_websites)
+				if builtwith_length != 0:
+					sys.stdout.flush()
+					j = req.json()
+					for Id in j["Relationships"][0]["Identifiers"]:
+						for match in Id["Matches"]:
+							d = match.get("Domain", "")
+							if d:
+								self.builtwith_connected_websites.add(d)
+								sys.stdout.write(
+									"\r | Found {} connected website(s) in the relationship profile!".format(
+										len(self.builtwith_connected_websites)))
+								sys.stdout.flush()
 
 			# and we are in business :v
 			with concurrent.futures.ThreadPoolExecutor(max_workers=self.__max_connections ) as executor:
